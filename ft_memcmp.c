@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "libft.h"
 int ft_memccpy(void *s1, void *s2, size_t len){
 
 size_t i;

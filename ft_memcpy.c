@@ -1,6 +1,7 @@
-#include <unistd.h>
+
 #define SIZE 5
-#include <stdio.h>
+#include "libft.h"
+
 void *ft_memccpy(void *s, void *dest, int c,  size_t len){
 
 size_t i;

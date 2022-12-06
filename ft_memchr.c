@@ -6,11 +6,12 @@
 /*   By: mnoralla <mnoralla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 21:53:48 by mnoralla          #+#    #+#             */
-/*   Updated: 2022/11/23 21:04:53 by mnoralla         ###   ########.fr       */
+/*   Updated: 2022/12/06 20:52:25 by mnoralla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
+#include "libft.h"
+
 
 void *	ft_memchr(const void *s, int c, size_t n)
 {
