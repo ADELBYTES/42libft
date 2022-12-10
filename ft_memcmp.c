@@ -2,8 +2,8 @@
 int ft_memccpy(void *s1, void *s2, size_t len){
 
 size_t i;
-char *altdest; /* of type pointer to char */
-char *altsrc;
+unsigned char *altdest; /* of type pointer to char */
+unsigned char *altsrc;
 
 altdest = (unsigned char *)s2;
 altsrc = (unsigned char *)s1;

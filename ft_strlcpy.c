@@ -1,25 +1,23 @@
 #include "libft.h"
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+    size_t i = 0;
 
-size_t strlcat(char * dst, const char * src, size_t dstsize){
+    /* Check for null pointers */
+    if (!dst || !src)
+    {
+        return (0);
+    }
 
-size_t ch;
-size_t d;
+    /* Copy the string up to a maximum of dstsize - 1 characters,
+       ensuring that the dst buffer is always null-terminated */
+    while (i < dstsize - 1 && src[i] != '\0')
+    {
+        dst[i] = src[i];
+        i++;
+    }
+    dst[i] = '\0';
 
-if( dstsize <= ft_strlen(dst)){
-	return dstsize + ft_strlen(src);
-}
-
-ch = ft_strlen(dst);
-d = 0;
-
-while(src[d] > 0 && ch + 1 < dstsize){
-dst[ch] = src[d]
-d++;
-ch++; 
-
-}
-dst[ch] ='\0';
-return (ft_strlen(dst) + ft_strlen(src));
-
-
+    /* Return the length of the src string, not including the null-terminator */
+    return (ft_strlen(src));
 }
