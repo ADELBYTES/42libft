@@ -1,25 +1,20 @@
 #include "libft.h"
-void *ft_memcpy(void *s, void *dest, int c,  size_t len){
+int		ft_memcmp(const void *s1, const void *s2, size_t n){
 
-size_t i;
-unsigned char *altdest; /* of type pointer to char */
-unsigned char *altsrc;
-
-altdest = (unsigned char *)dest;
-altsrc = (unsigned char *)s;
+size_t i = 0;
+const unsigned char *altdest = s2;
+const unsigned char *altsrc  = s1;
 
 
-while (len > 0){
-altdest[i] = altsrc[i];
-i++;
-len--;
+while (n > 0){
+if (altdest[i] != altsrc[i]){
+return (altdest[i] - altsrc[i]);
 }
-return (dest);
+i++;
+n--;
 
 
-
-
-
-
+}
+return (*altsrc - *altdest);
 
 }

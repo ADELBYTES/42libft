@@ -3,7 +3,7 @@
 void *ft_calloc(size_t num, size_t size){
 
 void *p;
-size_t i;
+size_t i = 0;
 
 
 p = malloc(num * size);

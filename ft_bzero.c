@@ -2,6 +2,15 @@
 
 void bzero(void *s, size_t n){
 
-ft_memset(s, '0', n);
+size_t i = 0;
+char *ptr;
+
+ptr = s;
+
+while(i < n){
+
+	ptr[i] = 0;
+	i++;
+}
 
 }

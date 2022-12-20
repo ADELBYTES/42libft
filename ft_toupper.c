@@ -2,7 +2,9 @@
 
 int		ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - ('a' - 'A'));
-	return (c);
+    while (c >= 'a' && c <= 'z')
+    {
+        c -= ('a' - 'A');
+    }
+    return (c);
 }
