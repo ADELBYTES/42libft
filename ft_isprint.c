@@ -1,3 +1,5 @@
+
+
 #include "libft.h"
 
 int	ft_isprint(int i)
@@ -7,3 +9,4 @@ int	ft_isprint(int i)
 	}
 	return (0);
 }
+

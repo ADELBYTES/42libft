@@ -1,20 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnoralla <mnoralla@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/24 19:13:38 by mnoralla          #+#    #+#             */
+/*   Updated: 2022/12/24 20:45:12 by mnoralla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
-int		ft_strncmp(const char *s1, char *s2, size_t n)
+int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-    size_t i = 0;
-
-    // Iterate over the characters in the strings
-    while (s1[i] != '\0' && s2[i] != '\0' && i < n)
+    for (size_t i = 0; i < n; i++)
     {
-        // If the characters are not equal, return the difference
         if (s1[i] != s2[i])
             return (unsigned char)s1[i] - (unsigned char)s2[i];
-
-        i++;
+        if (s1[i] == '\0' || s2[i] == '\0')
+            break;
     }
-
-    // If one of the strings has been exhausted, return the difference
-    // between the two strings
-    return (unsigned char)s1[i] - (unsigned char)s2[i];
+    return 0;
 }

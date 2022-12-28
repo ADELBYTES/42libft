@@ -1,23 +1,52 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnoralla <mnoralla@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/24 22:56:23 by mnoralla          #+#    #+#             */
+/*   Updated: 2022/12/26 18:57:40 by mnoralla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
+
 size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    size_t i = 0;
+    size_t src_len;
+    size_t i;
 
-    /* Check for null pointers */
-    if (!dst || !src)
+    if (dst == NULL || src == NULL)
     {
-        return (0);
+        return 0;
     }
 
-    /* Copy the string up to a maximum of dstsize - 1 characters,
-       ensuring that the dst buffer is always null-terminated */
-    while (i < dstsize - 1 && src[i] != '\0')
+    src_len = ft_strlen(src);
+    if (src_len + 1 < dstsize)
     {
-        dst[i] = src[i];
-        i++;
+        i = 0;
+        while (i < src_len)
+        {
+            dst[i] = src[i];
+            i++;
+        }
+        dst[i] = '\0';
     }
-    dst[i] = '\0';
+    else
+    {
+        if (dstsize > 0)
+        {
+            i = 0;
+            while (i < dstsize - 1)
+            {
+                dst[i] = src[i];
+                i++;
+            }
+            dst[i] = '\0';
+        }
+    }
 
-    /* Return the length of the src string, not including the null-terminator */
-    return (ft_strlen(src));
+    return src_len;
 }
