@@ -14,19 +14,20 @@
 
 void	*ft_calloc(size_t num, size_t size)
 {
-    void	*p;
+    void	*ptr;
     size_t	i;
 
     if (num == 0 || size == 0)
-        return NULL;
+        return (NULL);
 
-    p = malloc(num * size);
-    if (!p)
-        return NULL;
+	ptr	= malloc(num * size);
+    if (!ptr)
+        return (NULL);
 
-    for (i = 0; i < num * size; i++)
-        ((unsigned char *)p)[i] = 0;
+    i = 0;
+    while (i < num * size)
+        ((unsigned char *)ptr)[i++] = 0;
 
-    return p;
+    return (ptr);
 }
 
