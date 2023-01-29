@@ -6,43 +6,54 @@
 /*   By: mnoralla <mnoralla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:24:29 by mnoralla          #+#    #+#             */
-/*   Updated: 2023/01/04 21:58:14 by mnoralla         ###   ########.fr       */
+/*   Updated: 2023/01/05 21:49:50 by mnoralla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "libft.h"
+
+static unsigned int	ft_number_size(int number)
+{
+	unsigned int	length;
+
+	length = 0;
+	if (number == 0)
+		return (1);
+	if (number < 0)
+		length += 1;
+	while (number != 0)
+	{
+		number /= 10;
+		length++;
+	}
+	return (length);
+}
 
 char	*ft_itoa(int n)
 {
-    char	*str;
-    int	sign;
-    int	len;
-    long	num;
+	char			*string;
+	unsigned int	number;
+	unsigned int	length;
 
-	num = (long)n;
-	sign = (num < 0) ? -1 : 1;
-	len = (sign == -1) ? 2 : 1;
-	num *= sign;
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	while (n /= 10)
-	{
-		len++;
-	}
-	if (!str)
-	{
+	length = ft_number_size(n);
+	string = (char *)malloc(sizeof(char) * (length + 1));
+	if (string == NULL)
 		return (NULL);
-	}
-	str[len] = '\0';
-	while (len--)
+	if (n < 0)
 	{
-	str[len] = (num % 10) + '0';
-	num /= 10;
+		string[0] = '-';
+		number = -n;
 	}
-	if (sign == -1)
+	else
+		number = n;
+	if (number == 0)
+		string[0] = '0';
+	string[length] = '\0';
+	while (number != 0)
 	{
-	str[0] = '-';
+		string[length - 1] = (number % 10) + '0';
+		number = number / 10;
+		length--;
 	}
-	return (str);
+	return (string);
 }

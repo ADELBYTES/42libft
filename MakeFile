@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mnoralla <mnoralla@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/19 22:16:40 by mnoralla          #+#    #+#              #
+#    Updated: 2023/01/19 22:16:41 by mnoralla         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 Library		= libft
 
 files 	   = ft_strlen \
@@ -34,9 +46,10 @@ files 	   = ft_strlen \
 			 ft_strtrim	\
 			 ft_strmapi	\
 			 ft_split	\
+			 ft_striteri	\
 			 			 
 
-Compiler	= gcc
+Compiler	= cc
 
 CmpFlags	= -Wall -Wextra -Werror
 

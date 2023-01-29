@@ -6,53 +6,55 @@
 /*   By: mnoralla <mnoralla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:25:37 by mnoralla          #+#    #+#             */
-/*   Updated: 2023/01/01 20:25:38 by mnoralla         ###   ########.fr       */
+/*   Updated: 2023/01/14 23:20:01 by mnoralla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int count_words(const char *s, char c)
+static int	ft_wordcount(char const *s, char c)
 {
-    int count = 0;
-    int in_word = 0;
-    while (*s)
-    {
-        if (*s == c)
-            in_word = 0;
-        else if (!in_word)
-        {
-            in_word = 1;
-            count++;
-        }
-        s++;
-    }
-    return count;
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
+	while (s[i])
+	{
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i])
+			count++;
+		while (s[i] != c && s[i])
+			i++;
+	}
+	return (count);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-    int num_words = count_words(s, c);
-    char **result = malloc(sizeof(char *) * (num_words + 1));
-    int i = 0;
-    int j = 0;
-    int k = 0;
+	char	**t;
+	int		i;
+	int		j;
+	int		k;
 
-    while (i < num_words)
-    {
-        while (s[j] == c)
-            j++;
-        k = j;
-        while (s[j] && s[j] != c)
-            j++;
-        result[i] = malloc(sizeof(char) * (j - k + 1));
-        j = k;
-        k = 0;
-        while (s[j] && s[j] != c)
-            result[i][k++] = s[j++];
-        result[i][k] = '\0';
-        i++;
-    }
-    result[i] = 0;
-    return result;
+	if (!s)
+		return (NULL);
+	j = 0;
+	i = 0;
+	t = (char **)malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
+	if (!t)
+		return (NULL);
+	while (s[i])
+	{
+		k = i;
+		while (s[i] != c && s[i])
+			i++;
+		if (i > k)
+			t[j++] = ft_substr(s, k, i - k);
+		while (s[i] == c && s[i])
+			i++;
+	}
+	t[j] = NULL;
+	return (t);
 }

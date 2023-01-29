@@ -6,45 +6,33 @@
 /*   By: mnoralla <mnoralla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 20:24:57 by mnoralla          #+#    #+#             */
-/*   Updated: 2023/01/01 20:24:58 by mnoralla         ###   ########.fr       */
+/*   Updated: 2023/01/12 20:39:52 by mnoralla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    unsigned char *temp1;
-    const unsigned char *temp2;
-    size_t i;
+	size_t	i;
 
-    if (dst == NULL || src == NULL)
-    {
-
-        return NULL;
-
-    }
-
-    temp1 = (unsigned char*)dst;
-    temp2 = (const unsigned char*)src;
-    i = 0;
-
-    if (dst < src)
-    {
-        while (i < len)
-        {
-            temp1[i] = temp2[i];
-            i++;
-        }
-    }
-    else if (dst > src)
-    {
-        while (i < len)
-    {
-            temp1[len - i - 1] = temp2[len - i - 1];
-            i++;
-    }
-    }
-    return dst;
+	if ((dest == NULL) && (src == NULL))
+		return (NULL);
+	i = 0;
+	if (dest > src)
+	{
+		while (n--)
+		{
+			*((unsigned char *)dest + n) = *((unsigned char *)src + n);
+		}
+	}
+	else
+	{
+		while (n--)
+		{
+			*((unsigned char *)dest + i) = *((unsigned char *)src + i);
+			i++;
+		}
+	}
+	return (dest);
 }

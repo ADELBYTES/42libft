@@ -6,47 +6,33 @@
 /*   By: mnoralla <mnoralla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 22:56:23 by mnoralla          #+#    #+#             */
-/*   Updated: 2022/12/26 18:57:40 by mnoralla         ###   ########.fr       */
+/*   Updated: 2023/01/12 19:57:29 by mnoralla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    size_t src_len;
-    size_t i;
+	unsigned int	i;
+	size_t			size_src;
 
-    if (dst == NULL || src == NULL)
-    {
-        return 0;
-    }
-
-    src_len = ft_strlen(src);
-    if (src_len + 1 < dstsize)
-    {
-        i = 0;
-        while (i < src_len)
-        {
-            dst[i] = src[i];
-            i++;
-        }
-        dst[i] = '\0';
-    }
-    else
-    {
-        if (dstsize > 0)
-        {
-            i = 0;
-            while (i < dstsize - 1)
-            {
-                dst[i] = src[i];
-                i++;
-            }
-            dst[i] = '\0';
-        }
-    }
-
-    return src_len;
+	i = 0;
+	size_src = ft_strlen(src);
+	if ((int)size < 0)
+		size = size_src + 1;
+	if (size >= 2 && size_src != 0)
+	{
+		while (i < size - 1)
+		{
+			if (i < size_src)
+				dst[i] = src[i];
+			else if (i == size_src)
+				dst[i] = '\0';
+			i++;
+		}
+	}
+	if (size != 0)
+		dst[i] = '\0';
+	return (size_src);
 }
