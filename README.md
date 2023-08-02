@@ -1,7 +1,6 @@
 # 42Libft
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/your-username/libft)](https://github.com/your-username/libft/stargazers)
 
 ## About
 
