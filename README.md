@@ -25,8 +25,6 @@ The Libft library includes the following functions:
 
 - **Memory Functions**: `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memccpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`, `ft_memalloc`, `ft_memdel`.
 
-- **List Functions**: `ft_lstnew`, `ft_lstdelone`, `ft_lstdel`, `ft_lstadd`, `ft_lstiter`, `ft_lstmap`.
-
 - **Character Functions**: `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`.
 
 - **Conversion Functions**: `ft_atoi`, `ft_itoa`.
